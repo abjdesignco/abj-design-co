@@ -68,7 +68,7 @@
     background-position:center 0px;
     opacity:0.78;
     filter:blur(26px) saturate(190%);
-    animation:blendShift 34s ease-in-out infinite;
+    animation:blendShiftHeader 34s ease-in-out infinite;
   }
   .header-inner{display:flex;align-items:center;justify-content:space-between;padding:22px 40px;max-width:1200px;margin:0 auto;}
   .logo{display:flex;align-items:center;gap:11px;}
@@ -123,14 +123,19 @@
     background-position:center -92px;
     opacity:0.78;
     filter:blur(26px) saturate(190%);
-    animation:blendShift 34s ease-in-out infinite;
+    animation:blendShiftHero 34s ease-in-out infinite;
     -webkit-mask-image:linear-gradient(to bottom, black 0%, black 66%, transparent 94%);
     mask-image:linear-gradient(to bottom, black 0%, black 66%, transparent 94%);
   }
-  @keyframes blendShift{
-    0%{transform:translateY(0);}
-    50%{transform:translateY(10px);}
-    100%{transform:translateY(0);}
+  @keyframes blendShiftHeader{
+    0%{background-position:center 0px;}
+    50%{background-position:center 10px;}
+    100%{background-position:center 0px;}
+  }
+  @keyframes blendShiftHero{
+    0%{background-position:center -92px;}
+    50%{background-position:center -82px;}
+    100%{background-position:center -92px;}
   }
 
   .section-head{max-width:600px;margin:0 auto 60px;text-align:center;}
