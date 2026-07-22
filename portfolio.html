@@ -11,6 +11,7 @@
     --espresso:#3C2A21; --deep-espresso:#241812; --warm-sand:#E4D3B4; --soft-tan:#D9C09C;
     --amber:#C97A3D; --muted-clay:#A85C3B; --cream:#FBF8F3; --charcoal:#2B2320;
     --paper:#FFFFFF; --line:rgba(60,42,33,0.10);
+    --rust:#9C5530;
     --pd-gold:#C9A24B; --pd-dark:#1B1712;
     --bn-bg:#14201A; --bn-mint:#7FE0A8; --bn-text:#E8F3EC; --bn-dim:#8FA79A;
 
@@ -26,6 +27,8 @@
     --banner-subtext:var(--warm-sand);
     --banner-outline-border:rgba(248,242,231,0.35);
     --banner-hover-overlay:rgba(255,255,255,0.06);
+    --blend-opacity:0.92;
+    --blend-saturate:225%;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
@@ -40,6 +43,8 @@
       --banner-subtext:#2A1D15;
       --banner-outline-border:rgba(42,29,21,0.4);
       --banner-hover-overlay:rgba(0,0,0,0.08);
+      --blend-opacity:0.78;
+      --blend-saturate:198%;
     }
   }
   :root[data-theme="dark"]{
@@ -54,6 +59,8 @@
     --banner-subtext:#2A1D15;
     --banner-outline-border:rgba(42,29,21,0.4);
     --banner-hover-overlay:rgba(0,0,0,0.08);
+    --blend-opacity:0.78;
+    --blend-saturate:198%;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -68,17 +75,17 @@
   header{position:sticky;top:0;z-index:50;background:var(--header-wash);overflow:hidden;transition:background .3s ease;}
   header::before{
     content:'';position:absolute;inset:0;z-index:-1;
-    background:linear-gradient(135deg, var(--amber) 0%, var(--warm-sand) 14%, var(--soft-tan) 32%, var(--amber) 55%, var(--muted-clay) 78%, var(--espresso) 100%);
+    background:linear-gradient(135deg, var(--rust) 0%, var(--warm-sand) 14%, var(--soft-tan) 32%, var(--rust) 55%, var(--muted-clay) 78%, var(--espresso) 100%);
     background-repeat:no-repeat;
     background-size:100% 1400px;
     background-position:center 0px;
-    opacity:0.78;
-    filter:blur(26px) saturate(190%);
-    animation:blendShiftHeader 34s ease-in-out infinite;
+    opacity:var(--blend-opacity);
+    filter:blur(26px) saturate(var(--blend-saturate));
+    animation:blendShiftHeader 20s ease-in-out infinite;
   }
   @keyframes blendShiftHeader{
     0%{background-position:center 0px;}
-    50%{background-position:center 10px;}
+    50%{background-position:center 36px;}
     100%{background-position:center 0px;}
   }
   .theme-toggle{
