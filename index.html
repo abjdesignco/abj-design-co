@@ -53,22 +53,21 @@
   a:focus-visible, button:focus-visible{outline:2px solid var(--amber);outline-offset:3px;}
   @media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important;}}
 
-  header{position:sticky;top:0;z-index:50;background:var(--header-wash);transition:background .3s ease;}
+  header{position:sticky;top:0;z-index:50;background:var(--header-wash);overflow:hidden;transition:background .3s ease;}
   header::before{
     content:'';position:absolute;inset:0;z-index:-1;
     background:
-      radial-gradient(ellipse 70% 60% at 50% 8%, var(--amber) 0%, transparent 72%),
       radial-gradient(ellipse 55% 50% at 20% 15%, var(--warm-sand) 0%, transparent 62%),
       radial-gradient(ellipse 50% 55% at 82% 28%, var(--amber) 0%, transparent 62%),
       radial-gradient(ellipse 60% 50% at 32% 70%, var(--muted-clay) 0%, transparent 62%),
       radial-gradient(ellipse 55% 55% at 78% 76%, var(--espresso) 0%, transparent 62%),
       linear-gradient(135deg, var(--amber) 0%, var(--warm-sand) 14%, var(--soft-tan) 32%, var(--amber) 55%, var(--muted-clay) 78%, var(--espresso) 100%);
-    background-blend-mode:overlay, overlay, overlay, overlay, overlay, normal;
+    background-blend-mode:overlay, overlay, overlay, overlay, normal;
     background-repeat:no-repeat;
     background-size:100% 1400px;
     background-position:center 0px;
     opacity:0.78;
-    filter:blur(30px) saturate(190%);
+    filter:blur(26px) saturate(190%);
     animation:blendShift 34s ease-in-out infinite;
   }
   .header-inner{display:flex;align-items:center;justify-content:space-between;padding:22px 40px;max-width:1200px;margin:0 auto;}
@@ -113,18 +112,17 @@
   .hero-blend{
     position:absolute;inset:0;z-index:-1;
     background:
-      radial-gradient(ellipse 70% 60% at 50% 8%, var(--amber) 0%, transparent 72%),
       radial-gradient(ellipse 55% 50% at 20% 15%, var(--warm-sand) 0%, transparent 62%),
       radial-gradient(ellipse 50% 55% at 82% 28%, var(--amber) 0%, transparent 62%),
       radial-gradient(ellipse 60% 50% at 32% 70%, var(--muted-clay) 0%, transparent 62%),
       radial-gradient(ellipse 55% 55% at 78% 76%, var(--espresso) 0%, transparent 62%),
       linear-gradient(135deg, var(--amber) 0%, var(--warm-sand) 14%, var(--soft-tan) 32%, var(--amber) 55%, var(--muted-clay) 78%, var(--espresso) 100%);
-    background-blend-mode:overlay, overlay, overlay, overlay, overlay, normal;
+    background-blend-mode:overlay, overlay, overlay, overlay, normal;
     background-repeat:no-repeat;
     background-size:100% 1400px;
     background-position:center -92px;
     opacity:0.78;
-    filter:blur(30px) saturate(190%);
+    filter:blur(26px) saturate(190%);
     animation:blendShift 34s ease-in-out infinite;
     -webkit-mask-image:linear-gradient(to bottom, black 0%, black 66%, transparent 94%);
     mask-image:linear-gradient(to bottom, black 0%, black 66%, transparent 94%);
