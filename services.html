@@ -33,8 +33,16 @@
   nav a:not(.nav-cta):hover{opacity:1;}
   .nav-cta{background:var(--espresso);color:var(--cream) !important;opacity:1 !important;padding:11px 22px;border-radius:100px;font-size:14px;transition:background .2s ease;}
   .nav-cta:hover{background:var(--deep-espresso);}
-  .mobile-toggle{display:none;background:none;border:none;}
-  .mobile-toggle span{display:block;width:22px;height:1.5px;background:var(--espresso);margin:5px 0;}
+  .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+  .mobile-toggle span{display:block;width:22px;height:1.5px;background:var(--espresso);margin:5px 0;transition:transform .25s ease, opacity .2s ease;}
+  .mobile-toggle.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+  .mobile-toggle.open span:nth-child(2){opacity:0;}
+  .mobile-toggle.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+  .mobile-nav{display:none;flex-direction:column;padding:8px 40px 28px;border-top:1px solid var(--line);background:var(--cream);}
+  .mobile-nav.open{display:flex;}
+  .mobile-nav a{padding:14px 0;font-size:15.5px;font-weight:500;color:var(--espresso);border-bottom:1px solid var(--line);}
+  .mobile-nav a.active{color:var(--amber);}
+  .mobile-nav a.nav-cta{border-bottom:none;text-align:center;background:var(--espresso);color:var(--cream) !important;border-radius:100px;padding:14px;margin-top:16px;}
 
   .page-hero{padding:110px 40px 70px;text-align:center;}
   .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted-clay);font-weight:600;margin-bottom:28px;}
@@ -96,7 +104,14 @@
   .footer-bottom{max-width:1200px;margin:0 auto;padding-top:22px;display:flex;justify-content:space-between;font-size:12.5px;opacity:0.5;flex-wrap:wrap;gap:12px;}
 
   @media (max-width:900px){
-    nav ul{display:none;} .mobile-toggle{display:block;}
+    nav{display:none;} .mobile-toggle{display:block;} .header-inner{padding:18px 24px;} .mobile-nav{padding:8px 24px 24px;}
+    .page-hero{padding:56px 24px 36px;}
+    .section-head{margin-bottom:36px;}
+    .pricing{padding:16px 24px 64px;}
+    .addons{padding:16px 24px 64px;}
+    .faq{padding:16px 24px 64px;}
+    .cta-banner{padding:56px 24px;}
+    footer{padding:40px 24px 24px;}
     .pkg-grid,.addons-grid{grid-template-columns:1fr;}
     .footer-grid{grid-template-columns:1fr;gap:32px;}
     .cta-banner{border-radius:0;margin:0;}
@@ -121,7 +136,15 @@
       </ul>
       <a href="contact.html" class="nav-cta">Start a project</a>
     </nav>
-    <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="mobile-toggle" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="services.html" class="active">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="nav-cta">Start a project</a>
   </div>
 </header>
 
@@ -269,5 +292,14 @@
   </div>
 </footer>
 
+<script>
+  var toggleBtn = document.querySelector('.mobile-toggle');
+  var mobileNav = document.getElementById('mobile-nav');
+  toggleBtn.addEventListener('click', function(){
+    var isOpen = mobileNav.classList.toggle('open');
+    toggleBtn.classList.toggle('open', isOpen);
+    toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+</script>
 </body>
 </html>
