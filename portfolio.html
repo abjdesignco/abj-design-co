@@ -68,23 +68,6 @@
     50%{background-position:center 10px;}
     100%{background-position:center 0px;}
   }
-  @keyframes blendShiftHero{
-    0%{background-position:center -92px;}
-    50%{background-position:center -82px;}
-    100%{background-position:center -92px;}
-  }
-  .page-glow{
-    position:absolute;inset:0;z-index:-1;
-    background:linear-gradient(135deg, var(--amber) 0%, var(--warm-sand) 14%, var(--soft-tan) 32%, var(--amber) 55%, var(--muted-clay) 78%, var(--espresso) 100%);
-    background-repeat:no-repeat;
-    background-size:100% 1400px;
-    background-position:center -92px;
-    opacity:0.78;
-    filter:blur(26px) saturate(190%);
-    animation:blendShiftHero 34s ease-in-out infinite;
-    -webkit-mask-image:linear-gradient(to bottom, black 0px, black 260px, transparent 480px);
-    mask-image:linear-gradient(to bottom, black 0px, black 260px, transparent 480px);
-  }
   .theme-toggle{
     position:relative;width:44px;height:26px;border-radius:100px;border:1.5px solid var(--border-strong);
     background:var(--surface-card);cursor:pointer;flex-shrink:0;padding:0;transition:background .3s ease, border-color .3s ease;
@@ -270,7 +253,6 @@
 </header>
 
 <main>
-<div class="page-glow" aria-hidden="true"></div>
 
 <section class="page-hero">
   <span class="eyebrow"><span class="eyebrow-dot"></span>Portfolio</span>
