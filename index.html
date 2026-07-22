@@ -53,7 +53,7 @@
   a:focus-visible, button:focus-visible{outline:2px solid var(--amber);outline-offset:3px;}
   @media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important;}}
 
-  header{position:sticky;top:0;z-index:50;background:var(--header-wash);backdrop-filter:blur(10px);overflow:hidden;transition:background .3s ease;}
+  header{position:sticky;top:0;z-index:50;background:var(--header-wash);transition:background .3s ease;}
   header::before{
     content:'';position:absolute;inset:0;z-index:-1;
     background:
@@ -126,8 +126,8 @@
     opacity:0.78;
     filter:blur(30px) saturate(190%);
     animation:blendShift 34s ease-in-out infinite;
-    -webkit-mask-image:linear-gradient(to bottom, black 0%, black 55%, transparent 82%);
-    mask-image:linear-gradient(to bottom, black 0%, black 55%, transparent 82%);
+    -webkit-mask-image:linear-gradient(to bottom, black 0%, black 66%, transparent 94%);
+    mask-image:linear-gradient(to bottom, black 0%, black 66%, transparent 94%);
   }
   @keyframes blendShift{
     0%{transform:translateY(0);}
