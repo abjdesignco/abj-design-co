@@ -25,17 +25,20 @@
 
   header{position:sticky;top:0;z-index:50;background:rgba(251,248,243,0.78);backdrop-filter:blur(10px);overflow:hidden;}
   header::before{
-    content:'';position:absolute;inset:-20% -10%;z-index:-1;
+    content:'';position:absolute;inset:0;z-index:-1;
     background:
-      radial-gradient(ellipse 65% 70% at 22% 15%, var(--warm-sand) 0%, transparent 68%),
-      radial-gradient(ellipse 55% 65% at 80% 30%, var(--amber) 0%, transparent 68%),
-      linear-gradient(155deg, var(--warm-sand) 0%, var(--soft-tan) 45%, var(--amber) 100%);
-    background-blend-mode:overlay, overlay, normal;
+      radial-gradient(ellipse 55% 50% at 20% 15%, var(--warm-sand) 0%, transparent 62%),
+      radial-gradient(ellipse 50% 55% at 82% 28%, var(--amber) 0%, transparent 62%),
+      radial-gradient(ellipse 60% 50% at 32% 70%, var(--muted-clay) 0%, transparent 62%),
+      radial-gradient(ellipse 55% 55% at 78% 76%, var(--espresso) 0%, transparent 62%),
+      linear-gradient(135deg, var(--warm-sand) 0%, var(--soft-tan) 30%, var(--amber) 55%, var(--muted-clay) 78%, var(--espresso) 100%);
+    background-blend-mode:overlay, overlay, overlay, overlay, normal;
+    background-repeat:no-repeat;
+    background-size:100% 1400px;
+    background-position:center 0px;
     opacity:0.6;
-    filter:blur(28px) saturate(155%);
+    filter:blur(34px) saturate(160%);
     animation:blendShift 34s ease-in-out infinite;
-    -webkit-mask-image:linear-gradient(to bottom, black 0%, black 45%, transparent 92%);
-    mask-image:linear-gradient(to bottom, black 0%, black 45%, transparent 92%);
   }
   .header-inner{display:flex;align-items:center;justify-content:space-between;padding:22px 40px;max-width:1200px;margin:0 auto;}
   .logo{display:flex;align-items:center;gap:11px;}
@@ -72,29 +75,32 @@
   .btn-outline{border:1.5px solid rgba(60,42,33,0.25);color:var(--espresso);}
   .btn-outline:hover{border-color:var(--espresso);background:var(--paper);}
 
-  /* --- hero ombré color blend background: fades IN at the top to meet
-     header::before fading OUT at its bottom, so both dissolve into the
-     same neutral cream at the seam instead of meeting as a hard edge --- */
+  /* --- hero ombré color blend background: uses the EXACT same gradient,
+     background-size, and horizontal position as header::before, just offset
+     vertically by the header's own height — so the two are truly one
+     continuous image cut into two boxes, not two separately-faded blocks --- */
   .hero-blend{
-    position:absolute;inset:-15%;z-index:-1;
+    position:absolute;inset:0;z-index:-1;
     background:
-      radial-gradient(ellipse 60% 55% at 18% 22%, var(--warm-sand) 0%, transparent 65%),
-      radial-gradient(ellipse 55% 60% at 82% 30%, var(--amber) 0%, transparent 65%),
-      radial-gradient(ellipse 65% 55% at 30% 78%, var(--muted-clay) 0%, transparent 65%),
-      radial-gradient(ellipse 60% 60% at 78% 82%, var(--espresso) 0%, transparent 65%),
+      radial-gradient(ellipse 55% 50% at 20% 15%, var(--warm-sand) 0%, transparent 62%),
+      radial-gradient(ellipse 50% 55% at 82% 28%, var(--amber) 0%, transparent 62%),
+      radial-gradient(ellipse 60% 50% at 32% 70%, var(--muted-clay) 0%, transparent 62%),
+      radial-gradient(ellipse 55% 55% at 78% 76%, var(--espresso) 0%, transparent 62%),
       linear-gradient(135deg, var(--warm-sand) 0%, var(--soft-tan) 30%, var(--amber) 55%, var(--muted-clay) 78%, var(--espresso) 100%);
     background-blend-mode:overlay, overlay, overlay, overlay, normal;
-    opacity:0.65;
-    filter:blur(48px) saturate(165%);
+    background-repeat:no-repeat;
+    background-size:100% 1400px;
+    background-position:center -92px;
+    opacity:0.6;
+    filter:blur(34px) saturate(160%);
     animation:blendShift 34s ease-in-out infinite;
-    -webkit-mask-image:linear-gradient(to bottom, transparent 0%, black 32%, black 58%, transparent 80%);
-    mask-image:linear-gradient(to bottom, transparent 0%, black 32%, black 58%, transparent 80%);
+    -webkit-mask-image:linear-gradient(to bottom, black 0%, black 55%, transparent 82%);
+    mask-image:linear-gradient(to bottom, black 0%, black 55%, transparent 82%);
   }
   @keyframes blendShift{
-    0%{transform:translate(0,0) scale(1);}
-    33%{transform:translate(-2%,2%) scale(1.06);}
-    66%{transform:translate(2%,-1%) scale(1.03);}
-    100%{transform:translate(0,0) scale(1);}
+    0%{transform:translateY(0);}
+    50%{transform:translateY(10px);}
+    100%{transform:translateY(0);}
   }
 
   .section-head{max-width:600px;margin:0 auto 60px;text-align:center;}
