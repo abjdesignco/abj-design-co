@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — ABJ Design Co.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --espresso:#3C2A21; --deep-espresso:#241812; --warm-sand:#E4D3B4; --soft-tan:#D9C09C;
+    --amber:#C97A3D; --muted-clay:#A85C3B; --cream:#FBF8F3; --charcoal:#2B2320;
+    --paper:#FFFFFF; --line:rgba(60,42,33,0.10);
+    --pd-gold:#C9A24B; --pd-dark:#1B1712;
+    --bn-bg:#14201A; --bn-mint:#7FE0A8; --bn-text:#E8F3EC; --bn-dim:#8FA79A;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--cream);color:var(--charcoal);font-family:'Work Sans',sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,.logo-word{font-family:'Fraunces',serif;}
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 40px;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--amber);outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important;}}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(251,248,243,0.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;padding:22px 40px;max-width:1200px;margin:0 auto;}
+  .logo{display:flex;align-items:center;gap:11px;}
+  .logo-badge{width:34px;height:34px;border-radius:50%;object-fit:cover;flex-shrink:0;}
+  .logo-word{font-size:17px;font-weight:500;letter-spacing:0.01em;color:var(--espresso);}
+  nav{display:flex;align-items:center;gap:40px;}
+  nav ul{list-style:none;display:flex;gap:34px;}
+  nav a{font-size:14.5px;font-weight:500;color:var(--charcoal);opacity:0.75;transition:opacity .2s ease;}
+  nav a.active{opacity:1;color:var(--amber);}
+  nav a:not(.nav-cta):hover{opacity:1;}
+  .nav-cta{background:var(--espresso);color:var(--cream) !important;opacity:1 !important;padding:11px 22px;border-radius:100px;font-size:14px;transition:background .2s ease;}
+  .nav-cta:hover{background:var(--deep-espresso);}
+  .mobile-toggle{display:none;background:none;border:none;}
+  .mobile-toggle span{display:block;width:22px;height:1.5px;background:var(--espresso);margin:5px 0;}
+
+  .page-hero{padding:110px 40px 70px;text-align:center;}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted-clay);font-weight:600;margin-bottom:28px;}
+  .eyebrow-dot{width:5px;height:5px;border-radius:50%;background:var(--amber);}
+  .page-hero h1{font-size:clamp(2.3rem,5.2vw,3.6rem);font-weight:400;color:var(--espresso);max-width:700px;margin:0 auto 22px;line-height:1.15;letter-spacing:-0.01em;}
+  .page-hero p{max-width:560px;margin:0 auto;opacity:0.65;font-size:17px;}
+
+  .case{padding:60px 40px;scroll-margin-top:90px;}
+  .case-inner{max-width:1020px;margin:0 auto;}
+  .case-tag{font-size:12.5px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--amber);margin-bottom:14px;display:block;}
+  .case-inner h2{font-size:clamp(1.9rem,3.6vw,2.5rem);color:var(--espresso);font-weight:400;margin-bottom:14px;letter-spacing:-0.01em;}
+  .case-dek{font-size:16.5px;opacity:0.65;max-width:620px;margin-bottom:44px;}
+
+  /* browser-frame */
+  .browser{border-radius:14px;overflow:hidden;box-shadow:0 30px 60px rgba(60,42,33,0.12);margin-bottom:52px;border:1px solid var(--line);}
+  .browser-bar{display:flex;align-items:center;gap:7px;padding:13px 18px;background:#EDEAE3;border-bottom:1px solid rgba(43,35,32,0.08);}
+  .browser-dot{width:9px;height:9px;border-radius:50%;background:rgba(43,35,32,0.18);}
+  .browser-url{flex:1;margin-left:10px;background:#fff;border-radius:20px;padding:6px 16px;font-size:12px;color:rgba(43,35,32,0.45);font-family:'Work Sans';}
+
+  /* Papa's — real client */
+  .pd-screen{background:var(--pd-dark);color:#F3EAD3;}
+  .pd-top{padding:36px 44px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:20px;border-bottom:1px solid rgba(243,234,211,0.1);}
+  .pd-brand{font-family:'Libre Baskerville',serif;font-size:1.6rem;color:var(--pd-gold);}
+  .pd-loc{font-size:13px;color:rgba(243,234,211,0.6);margin-top:6px;}
+  .pd-live-link{border:1px solid var(--pd-gold);color:var(--pd-gold);padding:9px 18px;border-radius:100px;font-size:13px;font-weight:600;white-space:nowrap;}
+  .pd-live-link:hover{background:var(--pd-gold);color:var(--pd-dark);}
+  .pd-features{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(243,234,211,0.08);}
+  .pd-feature{background:var(--pd-dark);padding:32px 30px;}
+  .pd-feature h4{color:var(--pd-gold);font-size:13.5px;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:10px;font-family:'Work Sans';font-weight:600;}
+  .pd-feature p{font-size:14px;color:rgba(243,234,211,0.75);}
+
+  /* Hearth & Stone */
+  .hs-screen{background:#F3EEE3;}
+  .hs-nav{display:flex;justify-content:space-between;align-items:center;padding:24px 44px;border-bottom:1px solid rgba(60,42,33,0.1);}
+  .hs-logo{font-family:'Fraunces',serif;font-weight:600;font-size:19px;color:var(--espresso);}
+  .hs-links{display:flex;gap:28px;font-size:13px;color:var(--espresso);opacity:0.7;}
+  .hs-hero{padding:64px 44px;text-align:center;background:linear-gradient(180deg,#F3EEE3,#E8DFC9);}
+  .hs-hero h3{font-family:'Fraunces',serif;font-size:2rem;color:var(--espresso);margin-bottom:16px;font-weight:400;}
+  .hs-hero p{font-size:14.5px;color:rgba(60,42,33,0.7);margin-bottom:28px;}
+  .hs-btn{display:inline-block;background:var(--espresso);color:#F3EEE3;padding:13px 28px;font-size:13.5px;font-weight:600;border-radius:100px;}
+  .hs-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:0 44px 48px;}
+  .hs-photo{aspect-ratio:1;border-radius:6px;}
+
+  /* Bench */
+  .bn-screen{background:var(--bn-bg);color:var(--bn-text);font-family:'Space Grotesk',sans-serif;}
+  .bn-nav{display:flex;justify-content:space-between;align-items:center;padding:24px 44px;border-bottom:1px solid rgba(232,243,236,0.08);}
+  .bn-logo{font-weight:700;font-size:18px;}
+  .bn-logo::before{content:'▮ ';color:var(--bn-mint);}
+  .bn-cta-pill{background:var(--bn-mint);color:#0B1712;padding:10px 20px;border-radius:100px;font-size:13px;font-weight:600;}
+  .bn-hero{padding:64px 44px;text-align:center;}
+  .bn-hero h3{font-size:2rem;font-weight:600;margin-bottom:16px;letter-spacing:-0.01em;}
+  .bn-hero p{color:var(--bn-dim);font-size:14.5px;margin-bottom:32px;max-width:440px;margin-left:auto;margin-right:auto;}
+  .bn-builder{margin:0 44px 48px;background:#1C2E24;border-radius:10px;padding:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .bn-ex{background:rgba(232,243,236,0.05);border:1px solid rgba(232,243,236,0.1);border-radius:8px;padding:16px;font-size:13px;}
+  .bn-ex .n{color:var(--bn-mint);font-weight:600;margin-bottom:4px;}
+
+  .n-block{margin-bottom:36px;}
+  .n-block .n-tag{font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted-clay);margin-bottom:10px;display:block;}
+  .n-block h3{font-size:1.25rem;color:var(--espresso);font-weight:500;margin-bottom:10px;}
+  .n-block p{font-size:15.5px;opacity:0.7;margin-bottom:10px;}
+
+  .divider{max-width:1020px;margin:20px auto 0;height:1px;background:var(--line);}
+
+  .cta-banner{padding:100px 40px;text-align:center;background:var(--espresso);color:var(--cream);border-radius:24px;max-width:1200px;margin:60px auto 40px;}
+  .cta-banner h2{font-size:clamp(1.9rem,3.8vw,2.4rem);font-weight:400;margin-bottom:18px;}
+  .cta-banner p{max-width:460px;margin:0 auto 30px;opacity:0.75;color:var(--warm-sand);font-size:16px;}
+  .btn{display:inline-block;padding:15px 28px;font-size:14.5px;font-weight:600;border-radius:100px;transition:all .2s ease;}
+  .btn-outline{border:1.5px solid rgba(248,242,231,0.35);color:var(--cream);}
+  .btn-outline:hover{border-color:var(--cream);background:rgba(255,255,255,0.06);}
+
+  footer{padding:60px 40px 32px;}
+  .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;padding-bottom:36px;border-bottom:1px solid var(--line);}
+  .footer-brand p{margin-top:14px;font-size:13.5px;opacity:0.6;max-width:280px;line-height:1.7;}
+  footer h4{font-size:12.5px;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted-clay);margin-bottom:18px;}
+  footer ul{list-style:none;}
+  footer li{margin-bottom:10px;}
+  footer a{font-size:14px;opacity:0.8;}
+  footer a:hover{opacity:1;color:var(--amber);}
+  .footer-bottom{max-width:1200px;margin:0 auto;padding-top:22px;display:flex;justify-content:space-between;font-size:12.5px;opacity:0.5;flex-wrap:wrap;gap:12px;}
+
+  @media (max-width:900px){
+    nav ul{display:none;} .mobile-toggle{display:block;}
+    .pd-features{grid-template-columns:1fr;}
+    .hs-links, .bn-cta-pill{display:none;}
+    .hs-gallery{grid-template-columns:repeat(2,1fr);}
+    .bn-builder{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;gap:32px;}
+    .cta-banner{border-radius:0;margin:60px 0 0;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <img src="images/abj-icon-mark.png" alt="ABJ Design Co. logo" class="logo-badge">
+      <span class="logo-word">ABJ Design Co.</span>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio.html" class="active">Portfolio</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="nav-cta">Start a project</a>
+    </nav>
+    <button class="mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+
+<section class="page-hero">
+  <span class="eyebrow"><span class="eyebrow-dot"></span>Portfolio</span>
+  <h1>Real work, and real range</h1>
+  <p>A mix of live client work and concept case studies — showing how ABJ Design Co. approaches different kinds of businesses.</p>
+</section>
+
+<section class="case" id="papas">
+  <div class="case-inner">
+    <span class="case-tag">Small business · Live client · Poway, CA</span>
+    <h2>Papa's Liquor & Deli</h2>
+    <p class="case-dek">A neighborhood deli and liquor store's first website — built with online ordering and a real catering request tool.</p>
+
+    <div class="browser">
+      <div class="browser-bar">
+        <div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div>
+        <div class="browser-url">papasliquordeli.com</div>
+      </div>
+      <div class="pd-screen">
+        <div class="pd-top">
+          <div>
+            <div class="pd-brand">Papa's Liquor & Deli</div>
+            <div class="pd-loc">Poway, California · Family owned</div>
+          </div>
+          <a href="https://papasliquordeli.github.io/papasliquordeli/index.html" target="_blank" rel="noopener" class="pd-live-link">Visit live site ↗</a>
+        </div>
+        <div class="pd-features">
+          <div class="pd-feature">
+            <h4>Catering requests</h4>
+            <p>Structured form capturing event date, guest count, budget, and menu preferences up front.</p>
+          </div>
+          <div class="pd-feature">
+            <h4>Online ordering</h4>
+            <p>Direct pickup ordering, plus links to DoorDash, Uber Eats, and Grubhub.</p>
+          </div>
+          <div class="pd-feature">
+            <h4>Live store info</h4>
+            <p>Current hours and status, so customers know before they head over.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="n-block">
+      <span class="n-tag">The problem</span>
+      <h3>No website, no online ordering, no catering pipeline</h3>
+      <p>Papa's Liquor & Deli had no website at all — no way for customers to see the deli menu, check hours, order online, or ask about catering. Everything ran through walk-ins and phone calls, which meant catering inquiries in particular were easy to lose track of.</p>
+    </div>
+    <div class="n-block">
+      <span class="n-tag">The approach</span>
+      <h3>A catering form that replaces the voicemail</h3>
+      <p>The centerpiece is a structured catering request form — event date, guest count, budget range, and menu preferences, all captured up front. Alongside it, the site pulls together deli, liquor, and third-party delivery ordering into one place, with live hours so customers always know if the store's open.</p>
+    </div>
+    <div class="n-block">
+      <span class="n-tag">The result</span>
+      <h3>Live, and already doing the job</h3>
+      <p>The site is live and already handling what used to require a phone call. It's early — too soon to point to numbers — but Papa's now has an online presence that matches how seriously they run the business in person.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="case" id="hearth-stone">
+  <div class="case-inner">
+    <span class="case-tag">Small business / trades · Concept case study</span>
+    <h2>Hearth & Stone</h2>
+    <p class="case-dek">A masonry and fireplace business, taking a referral-only reputation online for the first time.</p>
+
+    <div class="browser">
+      <div class="browser-bar">
+        <div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div>
+        <div class="browser-url">hearthandstone.com</div>
+      </div>
+      <div class="hs-screen">
+        <div class="hs-nav">
+          <span class="hs-logo">Hearth & Stone</span>
+          <div class="hs-links"><span>Gallery</span><span>Services</span><span>Get a Quote</span></div>
+        </div>
+        <div class="hs-hero">
+          <h3>Stonework built to last generations.</h3>
+          <p>Custom fireplaces, patios, and retaining walls — see the finished work before you call.</p>
+          <span class="hs-btn">Request a quote</span>
+        </div>
+        <div class="hs-gallery">
+          <div class="hs-photo" style="background:linear-gradient(135deg,#6B5842,#3C2A21);"></div>
+          <div class="hs-photo" style="background:linear-gradient(135deg,#8A6A4A,#4A3826);"></div>
+          <div class="hs-photo" style="background:linear-gradient(135deg,#5C4632,#2B2018);"></div>
+          <div class="hs-photo" style="background:linear-gradient(135deg,#7A5C42,#3C2A21);"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="n-block">
+      <span class="n-tag">The problem</span>
+      <h3>A reputation capped by who already knew them</h3>
+      <p>Hearth & Stone built a solid reputation the old way — word of mouth and referrals. But that meant growth was capped by their existing network, and anyone searching online had no way to find them or see the quality of a finished fireplace before calling.</p>
+    </div>
+    <div class="n-block">
+      <span class="n-tag">The approach</span>
+      <h3>Let the finished work do the convincing</h3>
+      <p>The site is built around a project gallery — real finished builds front and center, organized by type of work — with a simple quote request form right alongside it, so starting a conversation takes one step, not phone tag.</p>
+    </div>
+    <div class="n-block">
+      <span class="n-tag">The result</span>
+      <h3>Referral-level trust, available to anyone</h3>
+      <p>The concept shows how a trades business built on referrals can extend that same trust online, letting the work speak for itself without losing the craftsmanship-first feel that built the reputation in the first place.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="case" id="bench">
+  <div class="case-inner">
+    <span class="case-tag">Startup / SaaS · Concept case study</span>
+    <h2>Bench</h2>
+    <p class="case-dek">A program-tracking app landing page for personal trainers and small gyms.</p>
+
+    <div class="browser">
+      <div class="browser-bar">
+        <div class="browser-dot"></div><div class="browser-dot"></div><div class="browser-dot"></div>
+        <div class="browser-url">bench.app</div>
+      </div>
+      <div class="bn-screen">
+        <div class="bn-nav">
+          <span class="bn-logo">Bench</span>
+          <span class="bn-cta-pill">Get started</span>
+        </div>
+        <div class="bn-hero">
+          <h3>Build a program in a few clicks.</h3>
+          <p>Assign workouts, track client progress, and manage your whole roster — built for solo trainers and small gyms.</p>
+        </div>
+        <div class="bn-builder">
+          <div class="bn-ex"><div class="n">Back Squat</div>4 sets × 6 reps</div>
+          <div class="bn-ex"><div class="n">Romanian Deadlift</div>3 sets × 8 reps</div>
+          <div class="bn-ex"><div class="n">Walking Lunge</div>3 sets × 12 reps</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="n-block">
+      <span class="n-tag">The problem</span>
+      <h3>Managing programs by memory and spreadsheet</h3>
+      <p>Solo trainers and small gym owners were managing client programs the same way for years — spreadsheets, sticky notes, or memory. Updating a program mid-week or handing a client to another trainer meant starting from scratch.</p>
+    </div>
+    <div class="n-block">
+      <span class="n-tag">The approach</span>
+      <h3>Lead with the workout builder, not a dashboard</h3>
+      <p>The hero leads straight into a live-feeling preview of the workout builder — picking exercises, setting sets and reps, assigning to a client — because that's the moment that actually convinces a trainer this saves them time.</p>
+    </div>
+    <div class="n-block">
+      <span class="n-tag">The result</span>
+      <h3>Sold through the workflow, not the pitch</h3>
+      <p>The concept shows how a genuinely useful but unglamorous tool can be sold through the workflow itself, rather than generic dashboard screenshots or stock SaaS language.</p>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <section class="cta-banner">
+    <h2>Want your business up here next?</h2>
+    <p>Let's talk about what your site needs to do — and how it could look.</p>
+    <a href="contact.html" class="btn btn-outline">Start a project</a>
+  </section>
+</div>
+
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="logo-word">ABJ Design Co.</span>
+      <p>Websites for businesses and creators of any kind — designed and built in San Diego, CA.</p>
+    </div>
+    <div>
+      <h4>Site</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:hello@abjdesignco.com">hello@abjdesignco.com</a></li>
+        <li><a href="#">Instagram — @ABJDesignCo</a></li>
+        <li><a href="#">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 ABJ Design Co. All rights reserved.</span>
+    <span>San Diego, California</span>
+  </div>
+</footer>
+
+</body>
+</html>
