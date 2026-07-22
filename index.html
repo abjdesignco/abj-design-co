@@ -69,9 +69,11 @@
       radial-gradient(ellipse 60% 60% at 78% 82%, var(--espresso) 0%, transparent 65%),
       linear-gradient(135deg, var(--warm-sand) 0%, var(--soft-tan) 30%, var(--amber) 55%, var(--muted-clay) 78%, var(--espresso) 100%);
     background-blend-mode:overlay, overlay, overlay, overlay, normal;
-    opacity:0.4;
-    filter:blur(60px) saturate(115%);
+    opacity:0.65;
+    filter:blur(48px) saturate(165%);
     animation:blendShift 34s ease-in-out infinite;
+    -webkit-mask-image:linear-gradient(to bottom, transparent 0%, black 25%, black 58%, transparent 80%);
+    mask-image:linear-gradient(to bottom, transparent 0%, black 25%, black 58%, transparent 80%);
   }
   @keyframes blendShift{
     0%{transform:translate(0,0) scale(1);}
