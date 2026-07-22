@@ -23,7 +23,19 @@
   a:focus-visible, button:focus-visible{outline:2px solid var(--amber);outline-offset:3px;}
   @media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important;}}
 
-  header{position:sticky;top:0;z-index:50;background:rgba(251,248,243,0.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  header{position:sticky;top:0;z-index:50;background:rgba(251,248,243,0.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);overflow:hidden;}
+  header::before{
+    content:'';position:absolute;inset:-60% -10%;z-index:-1;
+    background:
+      radial-gradient(ellipse 60% 60% at 20% 30%, var(--warm-sand) 0%, transparent 65%),
+      radial-gradient(ellipse 55% 60% at 80% 40%, var(--amber) 0%, transparent 65%),
+      radial-gradient(ellipse 60% 60% at 40% 75%, var(--muted-clay) 0%, transparent 65%),
+      linear-gradient(120deg, var(--warm-sand) 0%, var(--soft-tan) 30%, var(--amber) 58%, var(--muted-clay) 82%, var(--espresso) 100%);
+    background-blend-mode:overlay, overlay, overlay, normal;
+    opacity:0.5;
+    filter:blur(30px) saturate(160%);
+    animation:blendShift 34s ease-in-out infinite;
+  }
   .header-inner{display:flex;align-items:center;justify-content:space-between;padding:22px 40px;max-width:1200px;margin:0 auto;}
   .logo{display:flex;align-items:center;gap:11px;}
   .logo-badge{width:34px;height:34px;border-radius:50%;object-fit:cover;flex-shrink:0;}
