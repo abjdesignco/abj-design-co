@@ -146,13 +146,15 @@
     isolation:isolate;
     overflow:hidden;
   }
-  .hero-gradient{position:absolute;inset:0;z-index:-4;background:
-    radial-gradient(circle at 15% 15%,rgba(228,211,180,.96),transparent 34%),
-    radial-gradient(circle at 80% 18%,rgba(156,85,48,.88),transparent 35%),
-    radial-gradient(circle at 52% 65%,rgba(201,122,61,.63),transparent 42%),
-    linear-gradient(135deg,var(--rust),var(--warm-sand) 28%,var(--soft-tan) 52%,var(--muted-clay) 78%,var(--espresso));
-    filter:saturate(125%);
-    animation:gradientDrift 18s ease-in-out infinite alternate;
+  .hero-gradient{position:absolute;inset:-25%;z-index:-4;background:
+    radial-gradient(circle at 20% 26%,rgba(228,211,180,.95),transparent 29%),
+    radial-gradient(circle at 78% 22%,rgba(156,85,48,.72),transparent 31%),
+    radial-gradient(circle at 74% 78%,rgba(201,122,61,.5),transparent 33%),
+    radial-gradient(circle at 26% 78%,rgba(217,192,156,.88),transparent 35%),
+    linear-gradient(135deg,var(--cream),var(--soft-tan));
+    filter:blur(46px) saturate(132%);
+    animation:gradientDrift 20s ease-in-out infinite alternate;
+    transform:scale(1.1);
   }
   .hero-gradient::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(251,248,243,.02) 48%,var(--page) 98%)}
   .hero-orb{position:absolute;border-radius:50%;filter:blur(2px);opacity:.42;mix-blend-mode:soft-light;z-index:-3;animation:floatOrb 13s ease-in-out infinite}
@@ -261,7 +263,7 @@
   .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
   .reveal.visible{opacity:1;transform:none}
 
-  @keyframes gradientDrift{0%{transform:scale(1) translate3d(0,0,0)}100%{transform:scale(1.08) translate3d(1.5%,-1%,0)}}
+  @keyframes gradientDrift{0%{transform:scale(1.08) translate3d(-2%,-1%,0) rotate(-2deg)}50%{transform:scale(1.16) translate3d(2%,2%,0) rotate(2deg)}100%{transform:scale(1.11) translate3d(1%,-2%,0) rotate(-1deg)}}
   @keyframes floatOrb{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(22px,-28px,0)}}
   @keyframes deviceFloat{0%,100%{transform:rotateX(4deg) translateY(0)}50%{transform:rotateX(4deg) translateY(-10px)}}
   @keyframes phoneFloat{0%,100%{transform:rotate(4deg) translateY(0)}50%{transform:rotate(2deg) translateY(-14px)}}
