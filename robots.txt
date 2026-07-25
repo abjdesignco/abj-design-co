@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://abjdesignco.github.io/abj-design-co/sitemap.xml
