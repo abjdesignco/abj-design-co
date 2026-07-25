@@ -1,0 +1,13 @@
+{
+  "logo_original_bytes": 262312,
+  "logo_optimized_bytes": 8002,
+  "logo_reduction_percent": 96.9,
+  "logo_dimensions_before": "1024x1024",
+  "logo_dimensions_after": "128x128",
+  "pages_with_early_theme_init": 5,
+  "pages_with_explicit_logo_dimensions": 5,
+  "page_specific_font_loading": true,
+  "shared_runtime_deferred": true,
+  "lighthouse_run": false,
+  "lighthouse_note": "A live deployed URL and browser audit are still needed for measured Lighthouse scores."
+}

@@ -1,0 +1,32 @@
+{
+  "index": {
+    "inline_style_blocks": 0,
+    "inline_script_blocks": 0,
+    "has_shared_runtime": true,
+    "has_page_stylesheet": true
+  },
+  "services": {
+    "inline_style_blocks": 0,
+    "inline_script_blocks": 0,
+    "has_shared_runtime": true,
+    "has_page_stylesheet": true
+  },
+  "portfolio": {
+    "inline_style_blocks": 0,
+    "inline_script_blocks": 0,
+    "has_shared_runtime": true,
+    "has_page_stylesheet": true
+  },
+  "about": {
+    "inline_style_blocks": 0,
+    "inline_script_blocks": 0,
+    "has_shared_runtime": true,
+    "has_page_stylesheet": true
+  },
+  "contact": {
+    "inline_style_blocks": 0,
+    "inline_script_blocks": 0,
+    "has_shared_runtime": true,
+    "has_page_stylesheet": true
+  }
+}

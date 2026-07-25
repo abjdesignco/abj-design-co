@@ -1,0 +1,22 @@
+ABJ DESIGN CO. — PERFORMANCE PASS
+
+COMPLETED
+- Resized the navigation logo from 1024x1024 to 128x128.
+- Reduced the active logo asset from 262,312 bytes to 8,002 bytes (96.9% smaller).
+- Preserved the full-size source as images/abj-icon-mark-master.png for future exports.
+- Added explicit width and height attributes to prevent logo layout shift.
+- Added high-priority decoding hints for the above-the-fold logo.
+- Added a tiny pre-paint theme initializer to prevent light/dark theme flashing.
+- Kept the main JavaScript deferred.
+- Reduced font families on Services, About, and Contact to only the families those pages use.
+- Synchronized browser theme-color with light and dark mode.
+- Added reduced-data and reduced-motion safeguards for decorative animation.
+- Added an on-brand 404 page.
+
+STILL REQUIRES A LIVE AUDIT
+A Lighthouse score cannot be honestly guaranteed from static files alone. After GitHub Pages
+publishes this build, run Lighthouse against the public URL in an incognito browser. Network,
+GitHub Pages caching, Google Fonts, and the deployed domain all affect the final measurements.
+
+CONTACT FORM
+GitHub Pages does not process Netlify Forms. Connect the form to a form backend before launch.
