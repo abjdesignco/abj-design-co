@@ -1,0 +1,126 @@
+/* ABJ Design Co. — Shared Core */
+::selection{
+  background:rgba(201,122,61,.24);
+  color:var(--ink);
+}
+
+html{scroll-padding-top:104px;color-scheme:light dark}
+body{overflow-x:hidden}
+img{max-width:100%;height:auto}
+
+a,button,input,select,textarea{
+  -webkit-tap-highlight-color:transparent;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible{
+  outline:2px solid var(--amber);
+  outline-offset:4px;
+}
+
+.wrap{
+  width:min(var(--abj-content),calc(100% - 80px));
+}
+
+.nav-shell{
+  width:min(1160px,calc(100vw - 40px));
+  will-change:max-width,border-radius,box-shadow;
+}
+
+.nav-inner{gap:24px}
+.logo-word{letter-spacing:-.015em}
+
+nav a:not(.nav-cta){position:relative}
+
+nav a:not(.nav-cta)::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-7px;
+  height:1px;
+  background:currentColor;
+  transform:scaleX(0);
+  transform-origin:right;
+  transition:transform var(--abj-motion-fast) var(--abj-ease);
+}
+
+nav a:not(.nav-cta):hover::after,
+nav a.active:not(.nav-cta)::after{
+  transform:scaleX(1);
+  transform-origin:left;
+}
+
+.btn,
+.nav-cta,
+.submit-btn{
+  isolation:isolate;
+  overflow:hidden;
+}
+
+.btn svg,
+.submit-btn svg{
+  transition:transform var(--abj-motion-fast) var(--abj-ease);
+}
+
+.btn:hover svg,
+.submit-btn:hover svg{
+  transform:translateX(3px);
+}
+
+.hero-copy p{line-height:1.65}
+.section-kicker,.eyebrow{white-space:nowrap}
+
+.reveal{
+  transition-duration:var(--abj-motion-reveal);
+  transition-timing-function:var(--abj-ease);
+}
+
+footer{margin-top:0}
+
+.footer-grid,
+.footer-bottom{
+  width:min(var(--abj-content),100%);
+  max-width:none;
+}
+
+.footer-grid a{
+  transition:color var(--abj-motion-fast) ease;
+}
+
+@media (hover:hover){
+  .value-card,
+  .next-card,
+  .project-card,
+  .price-card,
+  .package-card{
+    will-change:transform;
+  }
+}
+
+@media(max-width:900px){
+  .wrap{width:min(100% - 48px,var(--abj-content))}
+  header{top:10px;padding:0 12px}
+  .nav-shell{width:100%}
+  .mobile-nav a{
+    min-height:48px;
+    display:flex;
+    align-items:center;
+  }
+}
+
+@media(max-width:560px){
+  .wrap{width:min(100% - 32px,var(--abj-content))}
+  footer{padding-left:16px;padding-right:16px}
+}
+
+
+/* Performance safeguards */
+.hero-gradient,.hero-orb,.orb,.device-card{backface-visibility:hidden}
+@media(prefers-reduced-data:reduce){
+  .hero-gradient,.hero-orb,.orb{animation:none!important}
+  .hero-orb,.orb{display:none!important}
+}

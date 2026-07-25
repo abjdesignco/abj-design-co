@@ -1,0 +1,23 @@
+/* ABJ Design Co. — Design Tokens */
+:root{
+  --espresso:#3C2A21;
+  --deep-espresso:#241812;
+  --warm-sand:#E4D3B4;
+  --soft-tan:#D9C09C;
+  --amber:#C97A3D;
+  --muted-clay:#A85C3B;
+  --rust:#9C5530;
+  --cream:#FBF8F3;
+  --charcoal:#2B2320;
+  --paper:#FFFFFF;
+
+  --abj-content:1180px;
+  --abj-radius-sm:14px;
+  --abj-radius-md:24px;
+  --abj-radius-lg:36px;
+
+  --abj-motion-fast:220ms;
+  --abj-motion-base:420ms;
+  --abj-motion-reveal:720ms;
+  --abj-ease:cubic-bezier(.2,.8,.2,1);
+}
